@@ -21,7 +21,7 @@ export default () => {
     }}>
       {
         cast.map(member => {
-          member.slug
+                      <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
         })
       }      
     </div>
