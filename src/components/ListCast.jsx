@@ -13,17 +13,19 @@ export default () => {
   });
 
   return (
-    <div style = {{
+    <div style={{
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(90px, 1fr))",
-      gap: "1rem",
-      marginBottom: "1rem"
+      gridTemplateColumns: `repeat(auto-fit, minmax(90px, 1fr))`,
+      gap: `1rem`,
+      marginBottom: '1rem'
     }}>
       {
-        cast.map(member => {
-                      <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
-        })
-      }      
+        cast.map(member => (
+          <a key={member.id} data-tooltip={member.name}>
+            <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
+          </a>
+        ))
+      }
     </div>
   )
 }
