@@ -1,4 +1,4 @@
-export default ({memberInfo, handleClose}) => {
+export default ({member, handleClose, handleChange}) => {
   return (
     <dialog id="modal-member" open>
       <article>
@@ -12,15 +12,26 @@ export default ({memberInfo, handleClose}) => {
           <div style={{display: "flex", 
                   gap: '1rem'
                 }}>
-                  <img style={{ width: '200px' }} 
-                    src={`images/${memberInfo.slug}.svg`} 
-                    alt={memberInfo.name} />
-                  <hgroup>
-                    <h1>{memberInfo.name}</h1>
-                    <p>{memberInfo.bio}</p>
-                  </hgroup>
-                  
-                </div>  
+            <img style={{ width: '200px' }} 
+              src={`images/${member.slug}.svg`} 
+              alt={member.name} />
+            <hgroup>
+              <h1>{member.name}</h1>
+              <p>{member.bio}</p>
+              <hgroup>
+                <a className="outline" href="#" role="button"
+                  onClick={()=>{
+                    handleChange(Number(member.id) - 1);
+                  }}
+                >previous</a>
+                <a className="outline" href="#" role="button"
+                  onClick={()=>{
+                    handleChange(Number(member.id) + 1);
+                  }}
+                >next</a>
+              </hgroup>
+            </hgroup>
+         </div>  
         </hgroup>
       </article>
     </dialog>
